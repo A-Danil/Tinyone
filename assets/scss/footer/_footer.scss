@@ -9,15 +9,24 @@
   }
 
   &__title {
-    margin: 0 80px 14px;
     text-align: center;
+    font-size: 2rem;
     color: $color-accent;
+
+    @include lg-min {
+      margin: 0 80px 14px;
+    }
   }
 
   &__subtitle {
-    margin: 0 80px 86px;
     text-align: center;
     color: $color-gray-light;
+    font-size: 1.25rem;
+    line-height: 1.2;
+
+    @include lg-min {
+      margin: 0 80px 86px;
+    }
 
     @include lg-md {
       margin: 0 60px 60px;
@@ -30,14 +39,12 @@
   }
 
   &__form {
-    margin: 0 100px;
     display: grid;
     text-align: center;
-    /* grid-template-columns: 1fr 127px; */
     gap: 20px;
 
     @include lg-min {
-      margin: 0 ($gap * 4);
+      margin: 0 100px 70px;
       grid-template-columns: 1fr 127px;
     }
     @include lg-md {
@@ -60,13 +67,16 @@
     height: 50px;
     border: none;
     border-radius: 4px;
-    font-family: $font-main;
     font-size: 1rem;
+    outline: none;
   }
 
   &__form-input {
-    color: $color-gray-light;
     padding: 16px 22px;
+
+    &::placeholder {
+      color: $color-gray-light;
+    }
   }
 
   &__form-button {
