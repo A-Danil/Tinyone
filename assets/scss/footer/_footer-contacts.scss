@@ -14,17 +14,21 @@
       grid-template-columns: 350px repeat(2, 1fr);
     }
 
+    @include md-sm {
+      grid-template-columns: 300px repeat(2, 1fr);
+    }
+
     @include sm {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    & article:nth-of-type(1) {
+    & div:nth-of-type(1) {
       @include lg-sm {
         grid-row: 1 / span 2;
       }
     }
 
-    & > article {
+    & > div {
       position: relative;
 
       &:hover::after {

@@ -12,7 +12,7 @@
       margin: 0 60px 14px;
     }
 
-    @include sm {
+    @include md {
       margin: 0 0 14px;
     }
   }
@@ -52,7 +52,7 @@
     }
 
     @include md-sm {
-      margin: 0;
+      margin: 0 0 20px;
       grid-template-columns: 1fr 127px;
     }
 
@@ -92,6 +92,10 @@
 
     @include lg-md {
       margin-bottom: 80px;
+    }
+
+    @include md-sm {
+      margin-bottom: 60px;
     }
 
     @include sm {
