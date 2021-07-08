@@ -1,0 +1,15 @@
+.header-menu {
+  &__link {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    margin-right: 9px;
+  }
+}

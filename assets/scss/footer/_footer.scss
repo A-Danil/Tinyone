@@ -1,0 +1,161 @@
+.footer {
+  background-color: $color-primary;
+  padding-top: 90px;
+  padding-bottom: 140px;
+
+  @include lg-sm {
+    padding-top: $gap * 3;
+    padding-bottom: $gap * 4;
+  }
+
+  &__title {
+    margin: 0 80px 14px;
+    text-align: center;
+    color: $color-accent;
+  }
+
+  &__subtitle {
+    margin: 0 80px 86px;
+    text-align: center;
+    color: $color-gray-light;
+
+    @include lg-md {
+      margin: 0 60px 60px;
+    }
+
+    @include md {
+      text-align: center;
+      margin: 0 0 40px;
+    }
+  }
+
+  &__form {
+    margin: 0 100px;
+    display: grid;
+    text-align: center;
+    /* grid-template-columns: 1fr 127px; */
+    gap: 20px;
+
+    @include lg-min {
+      margin: 0 ($gap * 4);
+      grid-template-columns: 1fr 127px;
+    }
+    @include lg-md {
+      margin: 0 ($gap * 4);
+      grid-template-columns: 1fr 127px;
+    }
+
+    @include md-sm {
+      margin: 0;
+      grid-template-columns: 1fr 127px;
+    }
+
+    @include sm {
+      margin: 0;
+    }
+  }
+
+  &__form-input,
+  &__form-button {
+    height: 50px;
+    border: none;
+    border-radius: 4px;
+    font-family: $font-main;
+    font-size: 1rem;
+  }
+
+  &__form-input {
+    color: $color-gray-light;
+    padding: 16px 22px;
+  }
+
+  &__form-button {
+    cursor: pointer;
+    font-weight: 700;
+    text-align: center;
+    background-color: $color-accent;
+  }
+
+  &__form-info {
+    margin-bottom: 80px;
+
+    @include lg-sm {
+      margin-bottom: 40px;
+    }
+
+    &:nth-of-type(1) {
+      @include lg-sm {
+        grid-row: 1 / span 2;
+      }
+    }
+  }
+
+  &__socials {
+    margin-bottom: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .fa {
+      font-size: 2.75rem;
+      margin: 0 15px;
+      color: $color-accent;
+      transition: color 0.5s;
+
+      &:hover {
+        color: $color-light;
+      }
+    }
+  }
+
+  &__contacts {
+    display: grid;
+    grid-template-columns: 300px repeat(4, 1fr);
+    column-gap: 20px;
+    color: $color-gray-light;
+    row-gap: 40px;
+
+    @include lg-sm {
+      grid-template-columns: 300px repeat(2, 1fr);
+      row-gap: $gap;
+    }
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__email {
+    color: $color-gray-light;
+    font-weight: 700;
+  }
+
+  &__info {
+    padding-right: 5px;
+    border-right: solid 2px rgba($color-light, 0.1);
+    transition: 0.5s;
+
+    &:nth-of-type(1) {
+      @include sm {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    &:hover {
+      border-right: solid 2px rgba($color-light, 0.5);
+    }
+
+    & ul {
+      list-style: none;
+
+      & li a {
+        color: $color-gray-light;
+        transition: 0.5s;
+
+        :hover {
+          color: $color-light;
+        }
+      }
+    }
+  }
+}

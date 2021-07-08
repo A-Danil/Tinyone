@@ -1,0 +1,142 @@
+.header-slider {
+  display: grid;
+  margin-top: 60px;
+  grid-template-rows: minmax(500px, max-content) 100px;
+
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+}
+
+.slide {
+  @include abs-position;
+  z-index: -1;
+  display: grid;
+  grid-template-areas: "ttl img" "sbt img" "txt img" "br img";
+  row-gap: 20px;
+  column-gap: 180px;
+  grid-template-rows: minmax(106px, max-content) auto 1fr auto;
+
+  transition: transform 0.5s;
+  transform: translateX(100vw);
+
+  &.active {
+    position: relative;
+    z-index: 1;
+    transform: translateX(0);
+  }
+  &.moved {
+    z-index: 1;
+    transform: translateX(-100vw);
+  }
+
+  &__title {
+    align-self: end;
+    font-size: 2rem;
+    grid-area: ttl;
+
+    @include sm {
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    grid-area: sbt;
+    color: $color-gray-dark;
+
+    @include sm {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    grid-area: txt;
+    color: $color-gray;
+  }
+
+  &__brands {
+    margin-left: 5px;
+    display: flex;
+    list-style: none;
+    grid-area: br;
+
+    & .fa {
+      font-size: 2.125rem;
+    }
+
+    & li {
+      margin-right: 35px;
+
+      & a i {
+        margin: 0;
+        color: $color-primary;
+
+        &:hover {
+          color: $color-primary;
+          text-shadow: 0 0 15px $color-light;
+        }
+      }
+    }
+
+    @include sm {
+      justify-content: center;
+    }
+  }
+
+  &__image {
+    grid-area: img;
+
+    & img {
+      max-width: 100%;
+    }
+  }
+
+  @include lg-min {
+    grid-template-columns: 1fr auto;
+  }
+
+  @include lg-md {
+    column-gap: $gap * 3;
+  }
+
+  @include md-sm {
+    column-gap: $gap * 2;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include sm {
+    column-gap: $gap;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "ttl ttl"
+      "sbt sbt"
+      "txt img"
+      "br br";
+    grid-template-rows: auto;
+  }
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include unlist;
+}
+
+.indicator {
+  width: 15px;
+  height: 15px;
+  margin: -9px 3px 0;
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: 7.5px;
+  background-color: $color-light;
+
+  &.active {
+    opacity: 1;
+  }
+}
