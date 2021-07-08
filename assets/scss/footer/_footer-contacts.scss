@@ -1,0 +1,72 @@
+.footer {
+  &__contacts {
+    display: grid;
+    color: $color-gray-light;
+    line-height: 1.3;
+    column-gap: $gap;
+    row-gap: $gap * 2;
+
+    @include lg-min {
+      grid-template-columns: 300px repeat(4, 1fr);
+    }
+
+    @include lg-md {
+      grid-template-columns: 350px repeat(2, 1fr);
+    }
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    & article:nth-of-type(1) {
+      @include lg-sm {
+        grid-row: 1 / span 2;
+      }
+    }
+
+    & > article {
+      position: relative;
+
+      &:hover::after {
+        background-color: rgba($color-light, 0.1);
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2px;
+        content: "";
+        background-color: rgba($color-light, 0.05);
+      }
+    }
+  }
+
+  &__email,
+  &__adress {
+    color: $color-gray-light;
+    font-weight: 700;
+  }
+
+  &__info {
+    &:nth-of-type(1) {
+      @include sm {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    & a {
+      color: $color-gray-light;
+
+      &:hover,
+      &:focus {
+        color: $color-light;
+      }
+    }
+
+    & ul {
+      @include unlist;
+    }
+  }
+}
