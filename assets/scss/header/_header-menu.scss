@@ -3,4 +3,8 @@
   padding-top: 30px;
   display: grid;
   grid-template-columns: auto 1fr;
+
+  @include md-min {
+    min-height: 140px;
+  }
 }

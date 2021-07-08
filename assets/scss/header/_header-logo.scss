@@ -7,9 +7,11 @@
   &__logo {
     display: flex;
     align-items: center;
+    margin-top: -5px;
   }
 
   &__image {
-    margin-right: 9px;
+    display: block;
+    margin-right: 10px;
   }
 }
