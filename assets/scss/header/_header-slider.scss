@@ -1,9 +1,12 @@
 .header-slider {
   display: grid;
-  margin-top: 60px;
-  grid-template-rows: minmax(500px, max-content) 100px;
-
   overflow: hidden;
+  @include md-min {
+    grid-template-rows: minmax(500px, max-content) 100px;
+  }
+  @include md {
+    grid-template-rows: minmax(300px, max-content) 80px;
+  }
 }
 
 .slides {
@@ -11,16 +14,44 @@
 }
 
 .slide {
-  @include abs-position;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   display: grid;
-  grid-template-areas: "ttl img" "sbt img" "txt img" "br img";
-  row-gap: 20px;
-  column-gap: 180px;
+  margin-top: $gap;
+  row-gap: $gap;
   grid-template-rows: minmax(106px, max-content) auto 1fr auto;
-
   transition: transform 0.5s;
   transform: translateX(100vw);
+
+  @include lg-min {
+    column-gap: $gap * 9;
+    grid-template-areas: "ttl img" "sbt img" "txt img" "br img";
+    grid-template-columns: 1fr auto;
+  }
+
+  @include lg-md {
+    column-gap: $gap * 3;
+    grid-template-areas: "ttl img" "sbt img" "txt img" "br img";
+    grid-template-columns: 1fr auto;
+  }
+
+  @include md-sm {
+    column-gap: $gap * 2;
+    grid-template-areas: "ttl img" "sbt img" "txt img" "br img";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include sm {
+    column-gap: $gap;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "ttl ttl"
+      "sbt sbt"
+      "txt img"
+      "br br";
+  }
 
   &.active {
     position: relative;
@@ -33,90 +64,67 @@
   }
 
   &__title {
+    margin: 0;
     align-self: end;
     font-size: 2rem;
     grid-area: ttl;
-
-    @include sm {
-      text-align: center;
-    }
   }
 
   &__subtitle {
+    margin: 0;
     font-size: 1.25rem;
-    font-weight: 400;
     grid-area: sbt;
-    color: $color-gray-dark;
-
-    @include sm {
-      text-align: center;
-    }
   }
 
   &__text {
+    margin: 0;
     grid-area: txt;
+    line-height: 1.25;
     color: $color-gray;
   }
 
   &__brands {
-    margin-left: 5px;
+    @include unlist;
+    margin: 17px 0 4px;
     display: flex;
-    list-style: none;
     grid-area: br;
-
-    & .fa {
-      font-size: 2.125rem;
-    }
-
-    & li {
-      margin-right: 35px;
-
-      & a i {
-        margin: 0;
-        color: $color-primary;
-
-        &:hover {
-          color: $color-primary;
-          text-shadow: 0 0 15px $color-light;
-        }
-      }
-    }
 
     @include sm {
       justify-content: center;
     }
-  }
 
-  &__image {
-    grid-area: img;
+    & li:not(:last-of-type) {
+      margin-right: 35px;
+    }
 
-    & img {
-      max-width: 100%;
+    & li a {
+      text-decoration: none;
+      color: $color-primary;
+      transition: color 0.5s;
+    }
+
+    & a {
+      &:hover,
+      &:focus {
+        text-shadow: 0 0 20px $color-light;
+      }
+    }
+
+    & i {
+      font-size: 2.75rem;
     }
   }
 
-  @include lg-min {
-    grid-template-columns: 1fr auto;
-  }
+  &__image {
+    padding-top: 4px;
+    grid-area: img;
 
-  @include lg-md {
-    column-gap: $gap * 3;
-  }
-
-  @include md-sm {
-    column-gap: $gap * 2;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include sm {
-    column-gap: $gap;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "ttl ttl"
-      "sbt sbt"
-      "txt img"
-      "br br";
-    grid-template-rows: auto;
+    @include md-min {
+      margin-right: 30px;
+    }
+    & img {
+      max-width: 100%;
+    }
   }
 }
 

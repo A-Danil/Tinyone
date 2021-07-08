@@ -66,16 +66,16 @@
     @include md-min {
       display: flex;
     }
-    // @include md {
-    //   position: absolute;
-    //   top: 0;
-    //   right: -232px;
-    //   display: none;
-    //   width: 232px;
-    //   height: 100vh;
-    //   padding-top: 40px;
-    //   background-color: $color-accent;
-    // }
+    @include md {
+      position: absolute;
+      top: 0;
+      right: -232px;
+      display: none;
+      width: 232px;
+      height: 100vh;
+      padding-top: 40px;
+      background-color: $color-accent;
+    }
   }
 
   &__item {
